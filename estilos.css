@@ -1,0 +1,131 @@
+/* ======== PANEL ADMIN OSCURO ======== */
+body {
+    margin: 0;
+    font-family: "Segoe UI", sans-serif;
+    background-color: #121212;
+    color: #e0e0e0;
+}
+
+/* Contenedor del dashboard */
+.dashboard {
+    display: flex;
+    min-height: 100vh;
+}
+
+/* Menu lateral */
+.sidebar {
+    width: 220px;
+    background-color: #1f1f1f;
+    padding: 20px;
+    box-shadow: 2px 0 10px rgba(0,0,0,0.6);
+}
+
+.sidebar h2 {
+    color: #fff;
+    text-align: center;
+    margin-bottom: 30px;
+}
+
+.sidebar a {
+    display: block;
+    color: #b0b0b0;
+    padding: 12px 15px;
+    margin: 5px 0;
+    text-decoration: none;
+    border-radius: 6px;
+    transition: 0.3s;
+}
+
+.sidebar a:hover {
+    background-color: #0066ff;
+    color: #fff;
+}
+
+/* Contenido principal */
+.main-content {
+    flex: 1;
+    padding: 30px;
+}
+
+/* Títulos */
+h1, h2 {
+    color: #ffffff;
+}
+
+/* Botones */
+.btn {
+    background-color: #0066ff;
+    color: #fff;
+    padding: 10px 16px;
+    border: none;
+    border-radius: 6px;
+    cursor: pointer;
+    font-weight: bold;
+    text-decoration: none;
+}
+
+.btn:hover {
+    background-color: #0047b3;
+}
+
+/* Botones rojos */
+.btn-red {
+    background-color: #cc0000;
+}
+
+.btn-red:hover {
+    background-color: #990000;
+}
+
+/* Inputs */
+input, select {
+    width: 100%;
+    padding: 10px;
+    margin: 5px 0 15px;
+    border-radius: 6px;
+    border: 1px solid #333;
+    background-color: #1a1a1a;
+    color: #ddd;
+}
+
+input:focus, select:focus {
+    border-color: #0066ff;
+    outline: none;
+}
+
+/* Tablas */
+table {
+    width: 100%;
+    border-collapse: collapse;
+    margin-top: 15px;
+}
+
+th {
+    background-color: #222;
+    padding: 12px;
+    text-align: left;
+}
+
+td {
+    padding: 12px;
+    border-bottom: 1px solid #333;
+}
+
+tr:hover {
+    background-color: #1f1f1f;
+}
+
+/* Responsive */
+@media (max-width: 768px) {
+    .dashboard {
+        flex-direction: column;
+    }
+    .sidebar {
+        width: 100%;
+        display: flex;
+        justify-content: space-around;
+    }
+    .sidebar a {
+        margin: 5px;
+    }
+}

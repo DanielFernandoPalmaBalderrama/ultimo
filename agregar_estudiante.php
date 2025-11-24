@@ -35,9 +35,13 @@
         <h2>➕ Agregar Estudiante</h2>
         <form action="guardar_estudiante.php" method="POST" id="formEstudiante">
             Nombre:<br>
-            <input type="text" name="nombre" id="nombre" pattern="[A-Za-zÁÉÍÓÚáéíóúÑñ ]+" title="Solo letras y espacios" required><br>
+            <input type="text" name="nombre" id="nombre" 
+                   pattern="[A-Za-zÁÉÍÓÚáéíóúÑñ ]+" 
+                   title="Solo letras y espacios" required><br>
             CI:<br>
-            <input type="text" name="ci" required><br>
+            <input type="text" name="ci" id="ci" 
+                   pattern="^\d{7}([A-Za-z0-9]*)?$" 
+                   title="Debe comenzar con 7 números. Puede tener un complemento alfanumérico opcional" required><br>
             Email:<br>
             <input type="email" name="email" required><br>
             <button type="submit" class="btn">Guardar</button>
@@ -50,9 +54,20 @@
 <script>
 document.getElementById('formEstudiante').addEventListener('submit', function(e) {
     const nombre = document.getElementById('nombre').value;
+    const ci = document.getElementById('ci').value;
+
+    // Validar nombre
     if (!/^[A-Za-zÁÉÍÓÚáéíóúÑñ ]+$/.test(nombre)) {
         alert('El nombre solo puede contener letras y espacios');
-        e.preventDefault(); // evita enviar el formulario
+        e.preventDefault();
+        return;
+    }
+
+    // Validar CI (7 números al inicio + opcional complemento alfanumérico)
+    if (!/^\d{7}([A-Za-z0-9]*)?$/.test(ci)) {
+        alert('El CI debe comenzar con 7 números. Puede tener un complemento alfanumérico opcional');
+        e.preventDefault();
+        return;
     }
 });
 </script>

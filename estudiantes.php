@@ -15,6 +15,7 @@
         .btn-red { background: #ff4d4d; }
         .btn:hover { opacity: 0.8; }
         .promedio { margin-top: 15px; font-size: 1.2em; color: #fff; }
+        form { display: inline; }
     </style>
 </head>
 <body>
@@ -60,7 +61,6 @@
             }
 
             $res = $conexion->query($sql);
-
             $promediosEstudiantes = []; // para promedio del filtro
 
             while ($row = $res->fetch_assoc()):

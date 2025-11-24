@@ -6,6 +6,20 @@
     <meta charset="UTF-8">
     <title>Agregar Estudiante</title>
     <link rel="stylesheet" href="estilos.css">
+    <style>
+        /* Estilos básicos para el dashboard */
+        body { font-family: Arial, sans-serif; margin: 0; background: #f5f5f5; }
+        .dashboard { display: flex; min-height: 100vh; }
+        .sidebar { width: 220px; background: #333; color: #fff; padding: 20px; }
+        .sidebar h2 { margin-top: 0; }
+        .sidebar a { display: block; color: #fff; text-decoration: none; margin: 10px 0; padding: 8px; border-radius: 4px; }
+        .sidebar a:hover { background: #444; }
+        .main-content { flex: 1; padding: 30px; }
+        .btn { display: inline-block; background: #28a745; color: #fff; text-decoration: none; padding: 8px 15px; border-radius: 4px; border: none; cursor: pointer; }
+        .btn:hover { background: #218838; }
+        input[type="text"], input[type="email"] { width: 100%; padding: 8px; margin: 5px 0 15px; border: 1px solid #ccc; border-radius: 4px; }
+        button.btn { width: auto; }
+    </style>
 </head>
 <body>
 <div class="dashboard">
@@ -19,9 +33,9 @@
 
     <div class="main-content">
         <h2>➕ Agregar Estudiante</h2>
-        <form action="guardar_estudiante.php" method="POST">
+        <form action="guardar_estudiante.php" method="POST" id="formEstudiante">
             Nombre:<br>
-            <input type="text" name="nombre" required><br>
+            <input type="text" name="nombre" id="nombre" pattern="[A-Za-zÁÉÍÓÚáéíóúÑñ ]+" title="Solo letras y espacios" required><br>
             CI:<br>
             <input type="text" name="ci" required><br>
             Email:<br>
@@ -32,5 +46,15 @@
         <a class="btn" href="estudiantes.php">⬅ Volver</a>
     </div>
 </div>
+
+<script>
+document.getElementById('formEstudiante').addEventListener('submit', function(e) {
+    const nombre = document.getElementById('nombre').value;
+    if (!/^[A-Za-zÁÉÍÓÚáéíóúÑñ ]+$/.test(nombre)) {
+        alert('El nombre solo puede contener letras y espacios');
+        e.preventDefault(); // evita enviar el formulario
+    }
+});
+</script>
 </body>
 </html>
